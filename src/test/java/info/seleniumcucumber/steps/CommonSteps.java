@@ -7,7 +7,6 @@ import info.seleniumcucumber.pageAndActionObjects.AbstractPage;
 import info.seleniumcucumber.utils.TestCaseFailed;
 import io.cucumber.java.en.*;
 import jdk.nashorn.internal.parser.JSONParser;
-import lombok.var;
 import org.hamcrest.CoreMatchers;
 import org.json.JSONObject;
 import org.junit.Assert;
@@ -212,7 +211,7 @@ public class CommonSteps extends AbstractPage {
 
         Thread.sleep(5000);
                 Predicate<HttpRequest> uriPredicate = httpRequest -> httpRequest.getUri().contains("weather.com/api/v1/p/redux-dal");
-        var interceptor =
+        NetworkInterceptor interceptor =
                 new NetworkInterceptor(
                         getDriver(),
 //                                        Route.matching(httpRequest -> true)

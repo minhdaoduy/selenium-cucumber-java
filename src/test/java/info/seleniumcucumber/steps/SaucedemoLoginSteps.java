@@ -4,7 +4,6 @@ import info.seleniumcucumber.pageAndActionObjects.AbstractPage;
 import info.seleniumcucumber.pageAndActionObjects.Saucedemo_SignInPage;
 import info.seleniumcucumber.testDataTypes.UserLogin;
 import io.cucumber.java.en.*;
-import lombok.var;
 import org.openqa.selenium.devtools.NetworkInterceptor;
 import org.openqa.selenium.remote.http.Contents;
 import org.openqa.selenium.remote.http.HttpRequest;

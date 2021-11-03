@@ -16,7 +16,8 @@ public final class DBConnection {
     public DBConnection() {
         String url = configFileReader.getDBUrl();
         String dbName = configFileReader.getDBName();
-        String driver = "com.mysql.jdbc.Driver";
+//        String driver = "com.mysql.jdbc.Driver";
+        String driver = "`com.mysql.cj.jdbc.Driver'";
         String userName = configFileReader.getDBUserName();
         String password = configFileReader.getDBPassWord();
 
