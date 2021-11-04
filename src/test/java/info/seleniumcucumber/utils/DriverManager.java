@@ -1,5 +1,6 @@
 package info.seleniumcucumber.utils;
 
+import info.seleniumcucumber.constants.EnvironmentType;
 import net.serenitybdd.core.webdriver.RemoteDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -47,18 +48,22 @@ public class DriverManager {
             case EDGE:
                 System.setProperty("webdriver.edge.driver", "src/test/resources/drivers/msedgedriver");
                 final EdgeOptions edgeOptions = new EdgeOptions();
-//                WebDriver edgeDriver = null;
-//                if (headless) {
-//                    edgeOptions.setCapability("UseChromium", true);
-//                    edgeOptions.setCapability("addArguments","headless");
-//                }
-//                try {
-//                    driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), edgeOptions);
-//                } catch (MalformedURLException e) {
-//                    e.printStackTrace();
-//                }
-                return new EdgeDriver(edgeOptions);
-//                return driver;
+                if (headless) {
+                    edgeOptions.setCapability("UseChromium", true);
+                    edgeOptions.setCapability("addArguments","headless");
+                }
+                if (configFileReader.getEnvironment() == EnvironmentType.LOCAL)
+                    return new EdgeDriver(edgeOptions);
+                else {
+                    RemoteWebDriver remoteWebDriver = null;
+                    try {
+                        remoteWebDriver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), edgeOptions);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    return remoteWebDriver;
+                }
+
             case CHROME:
                 System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver_mac_2");
                 final ChromeOptions chromeOptions = new ChromeOptions();
@@ -77,16 +82,22 @@ public class DriverManager {
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--no-sandbox");
-
-//                return new ChromeDriver(chromeOptions);
-                WebDriver chromeDriver = null;
-                try {
-                    chromeDriver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), chromeOptions);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
+                if (configFileReader.getEnvironment() == EnvironmentType.LOCAL) {
+                    ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
+                    devTools = chromeDriver.getDevTools();
+                    return chromeDriver;
                 }
-//                devTools = chromeDriver.getDevTools();
-                return chromeDriver;
+
+                else {
+                    RemoteWebDriver remoteWebDriver = null;
+                    try {
+                        remoteWebDriver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), chromeOptions);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    return remoteWebDriver;
+                }
+
             default:
                 System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver");
                 final FirefoxOptions ffOptions = new FirefoxOptions();
@@ -94,16 +105,19 @@ public class DriverManager {
                 if (headless) {
                     ffOptions.setHeadless(true);
                 }
-                return new FirefoxDriver(ffOptions);
-//                WebDriver firefoxDriver = null;
+        if (configFileReader.getEnvironment() == EnvironmentType.LOCAL)
+          return new FirefoxDriver(ffOptions);
+        else {
+            RemoteWebDriver remoteWebDriver = null;
 
-//                try {
-//                    driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), ffOptions);
-//                } catch (MalformedURLException e) {
-//                    e.printStackTrace();
-//                }
-//                return driver;
+              try {
+                  remoteWebDriver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), ffOptions);
+              } catch (MalformedURLException e) {
+                  e.printStackTrace();
+              }
+              return remoteWebDriver;
         }
+    }
     }
 
     public WebDriver getDriver() {

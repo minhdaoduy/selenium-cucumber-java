@@ -25,12 +25,7 @@ public class Hooks extends AbstractPage {
     @Before
     public void beforeScenario() {
         setUp();
-//        getDriver();
     }
-//    @AfterStep
-//    public void afterStep(Scenario scenario) throws IOException {
-//        endOfTest(scenario);
-//    }
 
     @After
     public void afterScenario(Scenario scenario) throws IOException {
@@ -38,12 +33,12 @@ public class Hooks extends AbstractPage {
     }
 
     public void endOfTest(Scenario scenario) throws IOException {
-//        if (scenario.getStatus() != null && scenario.isFailed()) {
-//            byte[] screenshotBytes = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-////            scenario.embed(screenshotBytes, "image/png");
-//            scenario.attach(screenshotBytes, "image/png", "screenshot.png");
-////            scenario.embed(screenshotBytes, "image/png", "screenshot.png");
-//        }
+        if (scenario.getStatus() != null && scenario.isFailed()) {
+            byte[] screenshotBytes = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+//            scenario.embed(screenshotBytes, "image/png");
+            scenario.attach(screenshotBytes, "image/png", "screenshot.png");
+//            scenario.embed(screenshotBytes, "image/png", "screenshot.png");
+        }
         String resultLog = "=================Test " + scenario.getName() + ": " + scenario.getStatus().toString() + "=================";
         String equalCharacters = "====================================================================================================================================================";
         equalCharacters = equalCharacters.substring(0, resultLog.length());
@@ -51,6 +46,5 @@ public class Hooks extends AbstractPage {
         log.info(resultLog);
         log.info(equalCharacters);
         getDriver().close();
-//        getDriver().quit();
     }
 }
