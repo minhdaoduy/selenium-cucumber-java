@@ -78,15 +78,15 @@ public class DriverManager {
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--no-sandbox");
 
-                return new ChromeDriver(chromeOptions);
-//                WebDriver chromeDriver = null;
-//                try {
-//                    driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), chromeOptions);
-//                } catch (MalformedURLException e) {
-//                    e.printStackTrace();
-//                }
+//                return new ChromeDriver(chromeOptions);
+                WebDriver chromeDriver = null;
+                try {
+                    chromeDriver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), chromeOptions);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
 //                devTools = chromeDriver.getDevTools();
-//                return driver;
+                return chromeDriver;
             default:
                 System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver");
                 final FirefoxOptions ffOptions = new FirefoxOptions();
