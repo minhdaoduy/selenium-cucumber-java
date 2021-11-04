@@ -14,7 +14,6 @@ import info.seleniumcucumber.utils.dataproviders.ConfigFileReader;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import sun.plugin2.util.BrowserType;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -77,15 +76,15 @@ public class DriverManager {
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--no-sandbox");
 
-//                ChromeDriver driver = new ChromeDriver(chromeOptions);
+                return new ChromeDriver(chromeOptions);
 //                WebDriver chromeDriver = null;
-                try {
-                    driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), chromeOptions);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), chromeOptions);
+//                } catch (MalformedURLException e) {
+//                    e.printStackTrace();
+//                }
 //                devTools = chromeDriver.getDevTools();
-                return driver;
+//                return driver;
             default:
                 System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver");
                 final FirefoxOptions ffOptions = new FirefoxOptions();
@@ -114,13 +113,18 @@ public class DriverManager {
             if(configFileReader.getBrowserWindowSize())
                 driver.manage().window().maximize();
             driverThreadLocal.set(driver);
-            Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
+//            Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
             return getDriver();
+//            return getDriver();
         }
     }
 
     public DevTools getDevTools() {
         return devTools;
+    }
+
+    public void setDriverThreadLocal() {
+        driverThreadLocal.set(null);
     }
 
 }

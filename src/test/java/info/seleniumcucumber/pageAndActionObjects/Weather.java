@@ -18,7 +18,7 @@ public class Weather extends AbstractPage{
 
 	@FindBy(how = How.XPATH, using = "//*[@id='LocationSearch_listbox']/button[1]")
 	private WebElement btnResult;
-	
+
 	public void inputKeywordIntoSearchField(String keyword) throws NoSuchFieldException
 	{
 		clickObj.click(txtLocationSearch);

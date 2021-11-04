@@ -5,10 +5,10 @@ Feature: weather website
 
   Scenario: Search location scenario
 #    And I interceptor api
-#    Given I want to go to weather website
+    Given I want to go to weather website
 #    And I interceptor api
-#    When I input keyword into search field with "ho chi minh"
-#    Then Verify search result "Ho Chi Minh City, Vietnam"
-    Given Mocking response
+    When I input keyword into search field with "ho chi minh"
+    Then Verify search result "Ho Chi Minh City, Vietnam"
+#    Given Mocking response
 
       
