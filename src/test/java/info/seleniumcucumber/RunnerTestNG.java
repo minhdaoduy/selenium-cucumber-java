@@ -1,17 +1,15 @@
 package info.seleniumcucumber;
 
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
+import com.epam.reportportal.testng.ReportPortalTestNGListener;
+import org.testng.annotations.*;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import org.testng.annotations.Test;
 
 @CucumberOptions(
     plugin = {
       "pretty",
-      "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+      "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 //      "json:target/reports/cucumber-json-reports/json-report.json",
 //      "html:target/reports/cucumber-html-reports/html-report.html"
     },
@@ -33,6 +31,7 @@ import org.testng.annotations.Test;
 //        tags = {},
 
     )
+//@Listeners({ReportPortalTestNGListener.class})
 public class RunnerTestNG  extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider(parallel = true)
