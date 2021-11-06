@@ -1,7 +1,7 @@
 package info.seleniumcucumber;
 
 
-import com.epam.reportportal.testng.ReportPortalTestNGListener;
+//import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import org.testng.annotations.*;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -10,6 +10,7 @@ import io.cucumber.testng.CucumberOptions;
     plugin = {
       "pretty",
       "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+            ,"com.epam.reportportal.cucumber.StepReporter"
 //      "json:target/reports/cucumber-json-reports/json-report.json",
 //      "html:target/reports/cucumber-html-reports/html-report.html"
     },

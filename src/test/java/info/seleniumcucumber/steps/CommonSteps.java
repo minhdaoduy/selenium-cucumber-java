@@ -16,7 +16,7 @@ import org.openqa.selenium.devtools.NetworkInterceptor;
 import org.openqa.selenium.devtools.v85.network.Network;
 import org.openqa.selenium.devtools.v85.network.model.*;
 
-import org.apache.log4j.LogMF;
+//import org.apache.log4j.LogMF;
 import org.openqa.selenium.remote.http.Contents;
 import org.openqa.selenium.remote.http.HttpRequest;
 import org.openqa.selenium.remote.http.HttpResponse;
