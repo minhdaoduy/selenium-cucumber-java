@@ -40,14 +40,14 @@ public class RunnerTestNG  extends AbstractTestNGCucumberTests {
         return super.scenarios();
     }
 
-    @BeforeSuite
-    public void beforeSuiteActivities() {
-
-
-    }
-
-    @AfterSuite
-    public void afterActivities() {
-
-    }
+//    @BeforeSuite
+//    public void beforeSuiteActivities() {
+//
+//
+//    }
+//
+//    @AfterSuite
+//    public void afterActivities() {
+//
+//    }
 }
