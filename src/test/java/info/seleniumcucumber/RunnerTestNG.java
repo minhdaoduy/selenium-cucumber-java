@@ -13,7 +13,8 @@ import io.cucumber.testng.CucumberOptions;
 //            ,"com.epam.reportportal.cucumber.StepReporter"
 //            ,"com.epam.reportportal.cucumber.ScenarioReporter"
     },
-    glue = {"info.seleniumcucumber.steps"},
+//    glue = {"info.seleniumcucumber.steps"},
+    glue = {"src/test/java/info/seleniumcucumber/steps/"},
 //            features = {"classpath:features/"}
 //            features = {"classpath:features/my_first.feature"}
     features = {
