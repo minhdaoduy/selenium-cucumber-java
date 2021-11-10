@@ -30,9 +30,7 @@ public class Hooks extends AbstractPage {
         setUp();
     }
 
-//    @After
-//    @AfterTest
-    @AfterClass
+    @After
     public void afterScenario(Scenario scenario) throws IOException {
         endOfTest(scenario);
     }
