@@ -49,5 +49,6 @@ public class Hooks extends AbstractPage {
         log.info(resultLog);
         log.info(equalCharacters);
         getDriver().close();
+        getDriver().quit();
     }
 }
