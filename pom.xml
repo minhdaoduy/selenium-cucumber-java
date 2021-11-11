@@ -140,13 +140,17 @@
             <groupId>com.epam.reportportal</groupId>
             <artifactId>agent-java-cucumber6</artifactId>
             <version>5.1.0-RC-4</version>
-            <scope>compile</scope>
+        </dependency>
+        <!-- TODO Leave only one dependency, depends on what logger you use: -->
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>logger-java-logback</artifactId>
+            <version>5.1.0-RC-1</version>
         </dependency>
         <dependency>
             <groupId>com.epam.reportportal</groupId>
-            <artifactId>allure-common</artifactId>
-            <version>5.1.0-BETA-2</version>
-            <scope>runtime</scope>
+            <artifactId>logger-java-log4j</artifactId>
+            <version>5.1.0-RC-1</version>
         </dependency>
     </dependencies>
 
@@ -177,8 +181,8 @@
                         </property>
                         <property>
                             <name>listener</name>
-<!--                            <value>com.epam.reportportal.cucumber.StepReporter</value>-->
-<!--                            <value>com.epam.reportportal.cucumber.ScenarioReporter</value>-->
+                            <value>com.epam.reportportal.cucumber.ScenarioReporter</value>
+<!--                            <value>com.epam.reportportal.testng.ReportPortalTestNGListener</value>-->
                         </property>
                     </properties>
                 </configuration>
