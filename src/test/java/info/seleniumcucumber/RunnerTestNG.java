@@ -9,16 +9,18 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
     plugin = {
       "pretty"
-      ,"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+//      ,"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+              ,"com.epam.reportportal.cucumber.ScenarioReporter"
 //            ,"com.epam.reportportal.cucumber.StepReporter"
 //            ,"com.epam.reportportal.cucumber.ScenarioReporter"
     },
     glue = {"info.seleniumcucumber.steps"},
+//    glue = {"src/test/java/info/seleniumcucumber/steps/"},
 //            features = {"classpath:features/"}
 //            features = {"classpath:features/my_first.feature"}
     features = {
-            "src/test/resources/features/Purchase.feature",
-            "src/test/resources/features/Purchase2.feature",
+//            "src/test/resources/features/Purchase.feature",
+//            "src/test/resources/features/Purchase2.feature",
 //            "src/test/resources/features/registeruser.feature",
 //            "src/test/resources/features/login.feature",
 //            "src/test/resources/features/testDB.feature",
@@ -39,14 +41,14 @@ public class RunnerTestNG  extends AbstractTestNGCucumberTests {
         return super.scenarios();
     }
 
-    @BeforeSuite
-    public void beforeSuiteActivities() {
-
-
-    }
-
-    @AfterSuite
-    public void afterActivities() {
-
-    }
+//    @BeforeSuite
+//    public void beforeSuiteActivities() {
+//
+//
+//    }
+//
+//    @AfterSuite
+//    public void afterActivities() {
+//
+//    }
 }

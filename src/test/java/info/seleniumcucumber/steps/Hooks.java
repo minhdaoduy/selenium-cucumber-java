@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +24,8 @@ public class Hooks extends AbstractPage {
 //public class Hooks {
     private final Logger log = LoggerFactory.getLogger(Hooks.class);
 
-    @Before
+//    @Before
+    @BeforeMethod
     public void beforeScenario() {
         setUp();
     }
@@ -46,5 +49,6 @@ public class Hooks extends AbstractPage {
         log.info(resultLog);
         log.info(equalCharacters);
         getDriver().close();
+        getDriver().quit();
     }
 }

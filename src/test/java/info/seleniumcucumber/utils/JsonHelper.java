@@ -12,7 +12,8 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.junit.Assert;
+//import org.junit.Assert;
+import org.testng.Assert;
 import org.skyscreamer.jsonassert.JSONAssert;
 
 //import static org.testng.Assert.assertEquals;
@@ -49,7 +50,7 @@ public class JsonHelper {
 	public static void assertInt(int actual, int expected, String error_message)
 	{
 //		assertEquals(actual,expected,error_message);
-		Assert.assertEquals(error_message,expected,actual);
+		Assert.assertEquals(error_message,expected, String.valueOf(actual));
 	}
 
 

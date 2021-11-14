@@ -10,7 +10,8 @@ import jdk.nashorn.internal.parser.JSONParser;
 import lombok.var;
 import org.hamcrest.CoreMatchers;
 import org.json.JSONObject;
-import org.junit.Assert;
+//import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.NetworkInterceptor;
 import org.openqa.selenium.devtools.v85.network.Network;
@@ -266,7 +267,7 @@ public class CommonSteps extends AbstractPage {
 
         String source = getDriver().getPageSource();
 
-        Assert.assertThat(source, CoreMatchers.containsString("delicious cheese!"));
+        Assert.assertEquals(source, CoreMatchers.containsString("delicious cheese!"));
         Thread.sleep(50000);
     }
 }

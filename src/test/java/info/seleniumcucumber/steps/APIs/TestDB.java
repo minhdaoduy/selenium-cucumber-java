@@ -4,7 +4,8 @@ import info.seleniumcucumber.constants.ValidatorOperation;
 import info.seleniumcucumber.pageAndActionObjects.APIs.Auth;
 import info.seleniumcucumber.utils.dataproviders.DBConnection;
 import io.cucumber.java.en.Given;
-import org.junit.Assert;
+//import org.junit.Assert;
+import org.testng.Assert;
 
 import java.lang.reflect.Method;
 import java.sql.SQLException;

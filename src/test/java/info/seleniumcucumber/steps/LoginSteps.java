@@ -3,7 +3,8 @@ package info.seleniumcucumber.steps;
 import info.seleniumcucumber.pageAndActionObjects.AbstractPage;
 import info.seleniumcucumber.pageAndActionObjects.LoginPage;
 import io.cucumber.java.en.Given;
-import org.junit.Assert;
+//import org.junit.Assert;
+import org.testng.Assert;
 
 public class LoginSteps extends AbstractPage {
 

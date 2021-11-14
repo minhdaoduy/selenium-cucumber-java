@@ -95,6 +95,8 @@ https://github.com/reportportal/agent-java-cucumber
 https://reportportal.io/docs/Deploy-with-Docker
 https://github.com/reportportal/agent-java-testNG
 https://github.com/reportportal/examples-java/tree/master/example-testng-log4j/src/main/resources
+Default User: default\1q2w3e
+Administrator: superadmin\erebus
 ### connect DB
 http://localhost:8080/ui/#login
 * Default User: default\1q2w3e
